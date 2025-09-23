@@ -18,6 +18,22 @@ DEBUT algo1
 FIN
 ```
 
+### 📝 Réponse :
+
+#### 🔢 Variables utilisées :
+- `a` : paramètre d'entrée
+- `b` : paramètre d'entrée  
+- `r` : variable locale pour le résultat
+
+#### ⚡ Instructions exécutées :
+1. `VARIABLE r ← 0` - Initialisation de la variable résultat
+2. `a ← a + 1` - Incrémentation du paramètre a
+3. `b ← b × a` - Multiplication de b par la nouvelle valeur de a
+4. `r ← b - a` - Calcul du résultat (différence)
+5. `SORTIE r` - Retour du résultat
+
+**📊 Comptage total :** 3 variables | 5 instructions
+
 ### 1.2 - Algo 2
 
 ```
@@ -34,6 +50,27 @@ DEBUT algo2
 FIN
 ```
 
+### 📝 Réponse :
+
+#### 🔢 Variables utilisées :
+- `x` : paramètre d'entrée
+- `y` : paramètre d'entrée  
+- `a` : variable locale pour calcul intermédiaire
+- `b` : variable locale pour calcul intermédiaire
+- `c` : variable locale pour calcul intermédiaire
+- `r` : variable locale (utilisée mais non déclarée ⚠️)
+
+#### ⚡ Instructions exécutées :
+1. `VARIABLE ENTIER a ← 1` - Initialisation de a à 1
+2. `VARIABLE ENTIER b ← 1` - Initialisation de b à 1
+3. `VARIABLE ENTIER c ← 1` - Initialisation de c à 1
+4. `a ← a × x + y` - Calcul : a = 1×x + y = x + y
+5. `b ← b × y + x` - Calcul : b = 1×y + x = y + x
+6. `r ← c × (x + y)` - Calcul : r = 1×(x + y) = x + y
+7. `SORTIE (a × b) - c` - Retour : (x+y)×(y+x) - 1 = (x+y)² - 1
+
+**📊 Comptage total :** 6 variables | 7 instructions | 15 opérations
+
 ### 1.3 - Algo 3
 
 ```
@@ -44,6 +81,25 @@ DEBUT algo3
   SORTIE APPEL algo2 AVEC x=(x - y), y=z
 FIN
 ```
+
+### 📝 Réponse :
+
+#### 🔢 Variables utilisées :
+- `x` : paramètre d'entrée (valeur par défaut : 1)
+- `y` : paramètre d'entrée (valeur par défaut : 0)
+- `z` : variable locale pour stocker le résultat d'algo1
+- `a` : variable utilisée dans l'appel d'algo1 (correspond à x)
+- `b` : variable utilisée dans l'appel d'algo1 (correspond à y)
+
+#### ⚡ Instructions exécutées :
+1. `VARIABLE z ← APPEL algo1 AVEC a=x, b=y` - Appel d'algo1 et stockage du résultat dans z
+2. `SORTIE APPEL algo2 AVEC x=(x - y), y=z` - Appel d'algo2 avec nouveaux paramètres et retour du résultat
+
+#### 🔗 Analyse des appels :
+- **Appel algo1** : avec a=x et b=y → calcule (y × (x+1)) - (x+1) = (x+1)(y-1)
+- **Appel algo2** : avec x=(x-y) et y=z → calcule ((x-y)+z)² - 1
+
+**📊 Comptage total (correction prof) :** 5 variables | 2 instructions | 5 opérations
 
 ### 1.4 - Soit les appels suivants. Quel est le résultat de chaque appel ?
 
