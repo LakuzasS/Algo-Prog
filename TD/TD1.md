@@ -137,37 +137,37 @@ r12 ← APPEL algo3 AVEC a=0, b=5
 > ### 🧮 Calculs des appels algo1 :
 > **Formule :** `(b × (a+1)) - (a+1) = (a+1)(b-1)`
 > 
-> - **r1** = algo1() → a=1, b=0 → (1+1)(0-1) = **-2** ✅
-> - **r2** = algo1(a=0, b=5) → (0+1)(5-1) = **4** ✅
-> - **r3** = algo1(a=-1, b=5) → (-1+1)(5-1) = **0** ✅
+> - **r1** = algo1() → a=1, b=0 → (1+1)(0-1) = **-2** 
+> - **r2** = algo1(a=0, b=5) → (0+1)(5-1) = **4** 
+> - **r3** = algo1(a=-1, b=5) → (-1+1)(5-1) = **0** 
 > 
 > ### 🧮 Calculs des appels algo2 :
 > **Formule :** `(a×x + y) × (b×y + x) - c = (x+y)² - 1`
 > 
-> - **r4** = algo2(x=3, y=3) → (3+3)² - 1 = **35** ✅
-> - **r5** = algo2(x=3, y=0) → (3+0)² - 1 = **8** ✅
-> - **r6** = algo2(x=0, y=3) → (0+3)² - 1 = **8** ✅
-> - **r7** = algo2(x=5, y=2) → (5+2)² - 1 = **48** ✅
-> - **r8** = algo2(x=0, y=1) → (0+1)² - 1 = **0** ✅
+> - **r4** = algo2(x=3, y=3) → (3+3)² - 1 = **35** 
+> - **r5** = algo2(x=3, y=0) → (3+0)² - 1 = **8** 
+> - **r6** = algo2(x=0, y=3) → (0+3)² - 1 = **8** 
+> - **r7** = algo2(x=5, y=2) → (5+2)² - 1 = **48** 
+> - **r8** = algo2(x=0, y=1) → (0+1)² - 1 = **0** 
 > 
 > ### 🧮 Calculs des appels algo3 :
 > **Processus :** z = algo1(a=x, b=y), puis algo2(x=(x-y), y=z)
 > 
 > - **r9** = algo3() → x=1, y=0
 >   - z = algo1(a=1, b=0) = -2
->   - algo2(x=(1-0)=1, y=-2) = (1+(-2))² - 1 = **0** ✅
+>   - algo2(x=(1-0)=1, y=-2) = (1+(-2))² - 1 = **0** 
 > 
 > - **r10** = algo3(x=1, y=2)
 >   - z = algo1(a=1, b=2) = 2
->   - algo2(x=(1-2)=-1, y=2) = (-1+2)² - 1 = **0** ✅
+>   - algo2(x=(1-2)=-1, y=2) = (-1+2)² - 1 = **0** 
 > 
 > - **r11** = algo3(x=0, y=3)
 >   - z = algo1(a=0, b=3) = 2
->   - algo2(x=(0-3)=-3, y=2) = (-3+2)² - 1 = **0** ✅
+>   - algo2(x=(0-3)=-3, y=2) = (-3+2)² - 1 = **0** 
 > 
 > - **r12** = algo3(x=0, y=5)
 >   - z = algo1(a=0, b=5) = 4
->   - algo2(x=(0-5)=-5, y=4) = (-5+4)² - 1 = **0** ✅
+>   - algo2(x=(0-5)=-5, y=4) = (-5+4)² - 1 = **0** 
 > 
 > **🎯 Résultats finaux :** r1=-2, r2=4, r3=0, r4=35, r5=8, r6=8, r7=48, r8=0, r9=0, r10=0, r11=0, r12=0
 
@@ -197,7 +197,7 @@ Remplacez les `?` et complétez les éventuels éléments manquants.
 
 > ## 📝 **RÉPONSE - Algorigramme askEven complété**
 > 
-> ### ✅ Algorigramme corrigé :
+> ### Algorigramme corrigé :
 > 
 > ```mermaid
 > flowchart TD
@@ -226,7 +226,7 @@ Le premier algorigramme réalisera la demande à l'utilisateur et appellera `isE
 
 > ## 📝 **RÉPONSE - Séparation en deux algorigrammes**
 > 
-> ### 🔧 Algorigramme `isEven` (vérification seule) :
+> ### 🔧 Algorigramme `isEven` :
 > 
 > ```mermaid
 > flowchart TD
@@ -238,7 +238,7 @@ Le premier algorigramme réalisera la demande à l'utilisateur et appellera `isE
 >     E --> F
 > ```
 > 
-> ### 🔧 Algorigramme `askEven` (demande utilisateur) :
+> ### 🔧 Algorigramme `askEven` :
 > 
 > ```mermaid
 > flowchart TD
