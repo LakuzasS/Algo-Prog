@@ -193,6 +193,67 @@ flowchart TD
 
 Remplacez les `?` et complétez les éventuels éléments manquants.
 
+```mermaid
+flowchart TD
+    A([askEven]) --> B[/Affiche "Saisir un entier ou 0 pour stopper"/]
+    B --> C[/Saisie x/]
+    C --> D{Est un nombre}
+    D -->|?| B
+    D -->|?| E{x égal à 0}
+    E -->|Oui| Z([fin])
+    E --> F[y ← x % 2]
+    F --> G{y égal à 0}
+    G -->|Oui| H[/Afficher "?"/]
+    G -->|Non| I[/Afficher "?"/]
+    H --> B
+    I --> B
+```
+
+---
+
+> ## 📝 **RÉPONSE - Algorigramme askEven complété**
+> 
+> ### 🔧 Éléments à remplacer :
+> 
+> 1. **Test "Est un nombre"** :
+>    - `D -->|Non| B` (si ce n'est pas un nombre, redemander)
+>    - `D -->|Oui| E` (si c'est un nombre, continuer)
+> 
+> 2. **Affichages manquants** :
+>    - `H[/Afficher "pair"/]` (quand y = 0)
+>    - `I[/Afficher "impair"/]` (quand y ≠ 0)
+> 
+> 3. **Élément manquant** :
+>    - Il manque la branche `E -->|Non| F` (si x ≠ 0, calculer le reste)
+> 
+> ### ✅ Algorigramme corrigé :
+> 
+> ```mermaid
+> flowchart TD
+>     A([askEven]) --> B[/Affiche "Saisir un entier ou 0 pour stopper"/]
+>     B --> C[/Saisie x/]
+>     C --> D{Est un nombre}
+>     D -->|Non| B
+>     D -->|Oui| E{x égal à 0}
+>     E -->|Oui| Z([fin])
+>     E -->|Non| F[y ← x % 2]
+>     F --> G{y égal à 0}
+>     G -->|Oui| H[/Afficher "pair"/]
+>     G -->|Non| I[/Afficher "impair"/]
+>     H --> B
+>     I --> B
+> ```
+> 
+> ### 📋 Logique de l'algorithme :
+> 1. **Demande** une saisie à l'utilisateur
+> 2. **Vérifie** que c'est bien un nombre (sinon redemande)
+> 3. **Test d'arrêt** : si x = 0, termine le programme
+> 4. **Calcul du reste** : y = x modulo 2
+> 5. **Test de parité** : si y = 0 alors "pair", sinon "impair"
+> 6. **Boucle** : retourne à la demande de saisie
+
+---
+
 ### 1.6 - Séparation
 Séparez cet algorigramme en deux algorigrammes : `askEven` et `isEven`.
 Le second algorigramme n'effectuera que la vérification pair/impair en retournant 1 si pair et 0 si impair. Aucun affichage ne sera fait.
