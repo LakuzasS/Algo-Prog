@@ -18,21 +18,25 @@ DEBUT algo1
 FIN
 ```
 
-### 📝 Réponse :
+---
 
-#### 🔢 Variables utilisées :
-- `a` : paramètre d'entrée
-- `b` : paramètre d'entrée  
-- `r` : variable locale pour le résultat
+> ## 📝 **RÉPONSE - Algo 1**
+> 
+> ### 🔢 Variables utilisées :
+> - `a` : paramètre d'entrée
+> - `b` : paramètre d'entrée  
+> - `r` : variable locale pour le résultat
+> 
+> ### ⚡ Instructions exécutées :
+> 1. `VARIABLE r ← 0` - Initialisation de la variable résultat
+> 2. `a ← a + 1` - Incrémentation du paramètre a
+> 3. `b ← b × a` - Multiplication de b par la nouvelle valeur de a
+> 4. `r ← b - a` - Calcul du résultat (différence)
+> 5. `SORTIE r` - Retour du résultat
+> 
+> **📊 Comptage total :** 3 variables | 5 instructions
 
-#### ⚡ Instructions exécutées :
-1. `VARIABLE r ← 0` - Initialisation de la variable résultat
-2. `a ← a + 1` - Incrémentation du paramètre a
-3. `b ← b × a` - Multiplication de b par la nouvelle valeur de a
-4. `r ← b - a` - Calcul du résultat (différence)
-5. `SORTIE r` - Retour du résultat
-
-**📊 Comptage total :** 3 variables | 5 instructions
+---
 
 ### 1.2 - Algo 2
 
@@ -50,26 +54,30 @@ DEBUT algo2
 FIN
 ```
 
-### 📝 Réponse :
+---
 
-#### 🔢 Variables utilisées :
-- `x` : paramètre d'entrée
-- `y` : paramètre d'entrée  
-- `a` : variable locale pour calcul intermédiaire
-- `b` : variable locale pour calcul intermédiaire
-- `c` : variable locale pour calcul intermédiaire
-- `r` : variable locale (utilisée mais non déclarée ⚠️)
+> ## 📝 **RÉPONSE - Algo 2**
+> 
+> ### 🔢 Variables utilisées :
+> - `x` : paramètre d'entrée
+> - `y` : paramètre d'entrée  
+> - `a` : variable locale pour calcul intermédiaire
+> - `b` : variable locale pour calcul intermédiaire
+> - `c` : variable locale pour calcul intermédiaire
+> - `r` : variable locale (utilisée mais non déclarée ⚠️)
+> 
+> ### ⚡ Instructions exécutées :
+> 1. `VARIABLE ENTIER a ← 1` - Initialisation de a à 1
+> 2. `VARIABLE ENTIER b ← 1` - Initialisation de b à 1
+> 3. `VARIABLE ENTIER c ← 1` - Initialisation de c à 1
+> 4. `a ← a × x + y` - Calcul : a = 1×x + y = x + y
+> 5. `b ← b × y + x` - Calcul : b = 1×y + x = y + x
+> 6. `r ← c × (x + y)` - Calcul : r = 1×(x + y) = x + y
+> 7. `SORTIE (a × b) - c` - Retour : (x+y)×(y+x) - 1 = (x+y)² - 1
+> 
+> **📊 Comptage total :** 6 variables | 7 instructions | 15 opérations
 
-#### ⚡ Instructions exécutées :
-1. `VARIABLE ENTIER a ← 1` - Initialisation de a à 1
-2. `VARIABLE ENTIER b ← 1` - Initialisation de b à 1
-3. `VARIABLE ENTIER c ← 1` - Initialisation de c à 1
-4. `a ← a × x + y` - Calcul : a = 1×x + y = x + y
-5. `b ← b × y + x` - Calcul : b = 1×y + x = y + x
-6. `r ← c × (x + y)` - Calcul : r = 1×(x + y) = x + y
-7. `SORTIE (a × b) - c` - Retour : (x+y)×(y+x) - 1 = (x+y)² - 1
-
-**📊 Comptage total :** 6 variables | 7 instructions | 15 opérations
+---
 
 ### 1.3 - Algo 3
 
@@ -82,24 +90,28 @@ DEBUT algo3
 FIN
 ```
 
-### 📝 Réponse :
+---
 
-#### 🔢 Variables utilisées :
-- `x` : paramètre d'entrée (valeur par défaut : 1)
-- `y` : paramètre d'entrée (valeur par défaut : 0)
-- `z` : variable locale pour stocker le résultat d'algo1
-- `a` : variable utilisée dans l'appel d'algo1 (correspond à x)
-- `b` : variable utilisée dans l'appel d'algo1 (correspond à y)
+> ## 📝 **RÉPONSE - Algo 3**
+> 
+> ### 🔢 Variables utilisées :
+> - `x` : paramètre d'entrée (valeur par défaut : 1)
+> - `y` : paramètre d'entrée (valeur par défaut : 0)
+> - `z` : variable locale pour stocker le résultat d'algo1
+> - `a` : variable utilisée dans l'appel d'algo1 (correspond à x)
+> - `b` : variable utilisée dans l'appel d'algo1 (correspond à y)
+> 
+> ### ⚡ Instructions exécutées :
+> 1. `VARIABLE z ← APPEL algo1 AVEC a=x, b=y` - Appel d'algo1 et stockage du résultat dans z
+> 2. `SORTIE APPEL algo2 AVEC x=(x - y), y=z` - Appel d'algo2 avec nouveaux paramètres et retour du résultat
+> 
+> ### 🔗 Analyse des appels :
+> - **Appel algo1** : avec a=x et b=y → calcule (y × (x+1)) - (x+1) = (x+1)(y-1)
+> - **Appel algo2** : avec x=(x-y) et y=z → calcule ((x-y)+z)² - 1
+> 
+> **📊 Comptage total (correction prof) :** 5 variables | 2 instructions | 5 opérations
 
-#### ⚡ Instructions exécutées :
-1. `VARIABLE z ← APPEL algo1 AVEC a=x, b=y` - Appel d'algo1 et stockage du résultat dans z
-2. `SORTIE APPEL algo2 AVEC x=(x - y), y=z` - Appel d'algo2 avec nouveaux paramètres et retour du résultat
-
-#### 🔗 Analyse des appels :
-- **Appel algo1** : avec a=x et b=y → calcule (y × (x+1)) - (x+1) = (x+1)(y-1)
-- **Appel algo2** : avec x=(x-y) et y=z → calcule ((x-y)+z)² - 1
-
-**📊 Comptage total (correction prof) :** 5 variables | 2 instructions | 5 opérations
+---
 
 ### 1.4 - Soit les appels suivants. Quel est le résultat de chaque appel ?
 
@@ -118,44 +130,48 @@ r11 ← APPEL algo3 AVEC a=0, b=3
 r12 ← APPEL algo3 AVEC a=0, b=5
 ```
 
-### 📝 Réponse :
+---
 
-#### 🧮 Calculs des appels algo1 :
-**Formule :** `(b × (a+1)) - (a+1) = (a+1)(b-1)`
+> ## 📝 **RÉPONSE - Calculs des appels**
+> 
+> ### 🧮 Calculs des appels algo1 :
+> **Formule :** `(b × (a+1)) - (a+1) = (a+1)(b-1)`
+> 
+> - **r1** = algo1() → a=1, b=0 → (1+1)(0-1) = **-2** ✅
+> - **r2** = algo1(a=0, b=5) → (0+1)(5-1) = **4** ✅
+> - **r3** = algo1(a=-1, b=5) → (-1+1)(5-1) = **0** ✅
+> 
+> ### 🧮 Calculs des appels algo2 :
+> **Formule :** `(a×x + y) × (b×y + x) - c = (x+y)² - 1`
+> 
+> - **r4** = algo2(x=3, y=3) → (3+3)² - 1 = **35** ✅
+> - **r5** = algo2(x=3, y=0) → (3+0)² - 1 = **8** ✅
+> - **r6** = algo2(x=0, y=3) → (0+3)² - 1 = **8** ✅
+> - **r7** = algo2(x=5, y=2) → (5+2)² - 1 = **48** ✅
+> - **r8** = algo2(x=0, y=1) → (0+1)² - 1 = **0** ✅
+> 
+> ### 🧮 Calculs des appels algo3 :
+> **Processus :** z = algo1(a=x, b=y), puis algo2(x=(x-y), y=z)
+> 
+> - **r9** = algo3() → x=1, y=0
+>   - z = algo1(a=1, b=0) = -2
+>   - algo2(x=(1-0)=1, y=-2) = (1+(-2))² - 1 = **0** ✅
+> 
+> - **r10** = algo3(x=1, y=2)
+>   - z = algo1(a=1, b=2) = 2
+>   - algo2(x=(1-2)=-1, y=2) = (-1+2)² - 1 = **0** ✅
+> 
+> - **r11** = algo3(x=0, y=3)
+>   - z = algo1(a=0, b=3) = 2
+>   - algo2(x=(0-3)=-3, y=2) = (-3+2)² - 1 = **0** ✅
+> 
+> - **r12** = algo3(x=0, y=5)
+>   - z = algo1(a=0, b=5) = 4
+>   - algo2(x=(0-5)=-5, y=4) = (-5+4)² - 1 = **0** ✅
+> 
+> **🎯 Résultats finaux :** r1=-2, r2=4, r3=0, r4=35, r5=8, r6=8, r7=48, r8=0, r9=0, r10=0, r11=0, r12=0
 
-- **r1** = algo1() → a=1, b=0 → (1+1)(0-1) = **-2** ✓
-- **r2** = algo1(a=0, b=5) → (0+1)(5-1) = **4** ✓
-- **r3** = algo1(a=-1, b=5) → (-1+1)(5-1) = **0** ✓
-
-#### 🧮 Calculs des appels algo2 :
-**Formule :** `(a×x + y) × (b×y + x) - c = (x+y)² - 1`
-
-- **r4** = algo2(x=3, y=3) → (3+3)² - 1 = **35** ✓
-- **r5** = algo2(x=3, y=0) → (3+0)² - 1 = **8** ✓
-- **r6** = algo2(x=0, y=3) → (0+3)² - 1 = **8** ✓
-- **r7** = algo2(x=5, y=2) → (5+2)² - 1 = **48** ✓
-- **r8** = algo2(x=0, y=1) → (0+1)² - 1 = **0** ✓
-
-#### 🧮 Calculs des appels algo3 :
-**Processus :** z = algo1(a=x, b=y), puis algo2(x=(x-y), y=z)
-
-- **r9** = algo3() → x=1, y=0
-  - z = algo1(a=1, b=0) = -2
-  - algo2(x=(1-0)=1, y=-2) = (1+(-2))² - 1 = **0** ✓
-
-- **r10** = algo3(x=1, y=2)
-  - z = algo1(a=1, b=2) = 2
-  - algo2(x=(1-2)=-1, y=2) = (-1+2)² - 1 = **0** ✓
-
-- **r11** = algo3(x=0, y=3)
-  - z = algo1(a=0, b=3) = 2
-  - algo2(x=(0-3)=-3, y=2) = (-3+2)² - 1 = **0** ✓
-
-- **r12** = algo3(x=0, y=5)
-  - z = algo1(a=0, b=5) = 4
-  - algo2(x=(0-5)=-5, y=4) = (-5+4)² - 1 = **0** ✓
-
-**📊 Résultats finaux :** r1=-2, r2=4, r3=0, r4=35, r5=8, r6=8, r7=48, r8=0, r9=0, r10=0, r11=0, r12=0
+---
 
 ### 1.5 - Soit l'algorigramme suivant :
 
