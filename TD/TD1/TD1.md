@@ -193,22 +193,6 @@ flowchart TD
 
 Remplacez les `?` et complétez les éventuels éléments manquants.
 
-```mermaid
-flowchart TD
-    A([askEven]) --> B[/Affiche "Saisir un entier ou 0 pour stopper"/]
-    B --> C[/Saisie x/]
-    C --> D{Est un nombre}
-    D -->|?| B
-    D -->|?| E{x égal à 0}
-    E -->|Oui| Z([fin])
-    E --> F[y ← x % 2]
-    F --> G{y égal à 0}
-    G -->|Oui| H[/Afficher "?"/]
-    G -->|Non| I[/Afficher "?"/]
-    H --> B
-    I --> B
-```
-
 ---
 
 > ## 📝 **RÉPONSE - Algorigramme askEven complété**
