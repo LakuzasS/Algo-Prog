@@ -222,6 +222,41 @@ Séparez cet algorigramme en deux algorigrammes : `askEven` et `isEven`.
 Le second algorigramme n'effectuera que la vérification pair/impair en retournant 1 si pair et 0 si impair. Aucun affichage ne sera fait.
 Le premier algorigramme réalisera la demande à l'utilisateur et appellera `isEven`, puis affichera "pair" ou "impair" selon le résultat.
 
+---
+
+> ## 📝 **RÉPONSE - Séparation en deux algorigrammes**
+> 
+> ### 🔧 Algorigramme `isEven` (vérification seule) :
+> 
+> ```mermaid
+> flowchart TD
+>     A([isEven]) --> B[y ← x % 2]
+>     B --> C{y égal à 0}
+>     C -->|Oui| D[RETOUR 1]
+>     C -->|Non| E[RETOUR 0]
+>     D --> F([fin])
+>     E --> F
+> ```
+> 
+> ### 🔧 Algorigramme `askEven` (demande utilisateur) :
+> 
+> ```mermaid
+> flowchart TD
+>     A([askEven]) --> B[/Affiche "Saisir un entier ou 0 pour stopper"/]
+>     B --> C[/Saisie x/]
+>     C --> D{Est un nombre}
+>     D -->|Non| B
+>     D -->|Oui| E{x égal à 0}
+>     E -->|Oui| Z([fin])
+>     E -->|Non| F[result ← APPEL isEven AVEC x]
+>     F --> G{result égal à 1}
+>     G -->|Oui| H[/Afficher "pair"/]
+>     G -->|Non| I[/Afficher "impair"/]
+>     H --> B
+>     I --> B
+> ```
+
+---
 
 ## 2.0 - Conception basique
 
