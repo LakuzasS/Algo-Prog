@@ -197,19 +197,6 @@ Remplacez les `?` et complétez les éventuels éléments manquants.
 
 > ## 📝 **RÉPONSE - Algorigramme askEven complété**
 > 
-> ### 🔧 Éléments à remplacer :
-> 
-> 1. **Test "Est un nombre"** :
->    - `D -->|Non| B` (si ce n'est pas un nombre, redemander)
->    - `D -->|Oui| E` (si c'est un nombre, continuer)
-> 
-> 2. **Affichages manquants** :
->    - `H[/Afficher "pair"/]` (quand y = 0)
->    - `I[/Afficher "impair"/]` (quand y ≠ 0)
-> 
-> 3. **Élément manquant** :
->    - Il manque la branche `E -->|Non| F` (si x ≠ 0, calculer le reste)
-> 
 > ### ✅ Algorigramme corrigé :
 > 
 > ```mermaid
@@ -227,14 +214,6 @@ Remplacez les `?` et complétez les éventuels éléments manquants.
 >     H --> B
 >     I --> B
 > ```
-> 
-> ### 📋 Logique de l'algorithme :
-> 1. **Demande** une saisie à l'utilisateur
-> 2. **Vérifie** que c'est bien un nombre (sinon redemande)
-> 3. **Test d'arrêt** : si x = 0, termine le programme
-> 4. **Calcul du reste** : y = x modulo 2
-> 5. **Test de parité** : si y = 0 alors "pair", sinon "impair"
-> 6. **Boucle** : retourne à la demande de saisie
 
 ---
 
