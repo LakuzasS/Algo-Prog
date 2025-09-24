@@ -22,12 +22,12 @@ FIN
 
 > ### 📝 **RÉPONSE**
 > 
-> ### 🔢 Variables utilisées :
+> ### Variables utilisées :
 > - `a` : paramètre d'entrée
 > - `b` : paramètre d'entrée  
 > - `r` : variable locale pour le résultat
 > 
-> ### ⚡ Instructions exécutées :
+> ### Instructions exécutées :
 > 1. `VARIABLE r ← 0` - Initialisation de la variable résultat
 > 2. `a ← a + 1` - Incrémentation du paramètre a
 > 3. `b ← b × a` - Multiplication de b par la nouvelle valeur de a
@@ -58,7 +58,7 @@ FIN
 
 > ### 📝 **RÉPONSE**
 > 
-> ### 🔢 Variables utilisées :
+> ### Variables utilisées :
 > - `x` : paramètre d'entrée
 > - `y` : paramètre d'entrée  
 > - `a` : variable locale pour calcul intermédiaire
@@ -66,7 +66,7 @@ FIN
 > - `c` : variable locale pour calcul intermédiaire
 > - `r` : variable locale (utilisée mais non déclarée ⚠️)
 > 
-> ### ⚡ Instructions exécutées :
+> ### Instructions exécutées :
 > 1. `VARIABLE ENTIER a ← 1` - Initialisation de a à 1
 > 2. `VARIABLE ENTIER b ← 1` - Initialisation de b à 1
 > 3. `VARIABLE ENTIER c ← 1` - Initialisation de c à 1
@@ -94,18 +94,18 @@ FIN
 
 > ### 📝 **RÉPONSE**
 > 
-> ### 🔢 Variables utilisées :
+> ### Variables utilisées :
 > - `x` : paramètre d'entrée (valeur par défaut : 1)
 > - `y` : paramètre d'entrée (valeur par défaut : 0)
 > - `z` : variable locale pour stocker le résultat d'algo1
 > - `a` : variable utilisée dans l'appel d'algo1 (correspond à x)
 > - `b` : variable utilisée dans l'appel d'algo1 (correspond à y)
 > 
-> ### ⚡ Instructions exécutées :
+> ### Instructions exécutées :
 > 1. `VARIABLE z ← APPEL algo1 AVEC a=x, b=y` - Appel d'algo1 et stockage du résultat dans z
 > 2. `SORTIE APPEL algo2 AVEC x=(x - y), y=z` - Appel d'algo2 avec nouveaux paramètres et retour du résultat
 > 
-> ### 🔗 Analyse des appels :
+> ### Analyse des appels :
 > - **Appel algo1** : avec a=x et b=y → calcule (y × (x+1)) - (x+1) = (x+1)(y-1)
 > - **Appel algo2** : avec x=(x-y) et y=z → calcule ((x-y)+z)² - 1
 > 
@@ -134,14 +134,14 @@ r12 ← APPEL algo3 AVEC a=0, b=5
 
 > ### 📝 **RÉPONSE**
 > 
-> ### 🧮 Calculs des appels algo1 :
+> ### Calculs des appels algo1 :
 > **Formule :** `(b × (a+1)) - (a+1) = (a+1)(b-1)`
 > 
 > - **r1** = algo1() → a=1, b=0 → (1+1)(0-1) = **-2** 
 > - **r2** = algo1(a=0, b=5) → (0+1)(5-1) = **4** 
 > - **r3** = algo1(a=-1, b=5) → (-1+1)(5-1) = **0** 
 > 
-> ### 🧮 Calculs des appels algo2 :
+> ### Calculs des appels algo2 :
 > **Formule :** `(a×x + y) × (b×y + x) - c = (x+y)² - 1`
 > 
 > - **r4** = algo2(x=3, y=3) → (3+3)² - 1 = **35** 
@@ -150,7 +150,7 @@ r12 ← APPEL algo3 AVEC a=0, b=5
 > - **r7** = algo2(x=5, y=2) → (5+2)² - 1 = **48** 
 > - **r8** = algo2(x=0, y=1) → (0+1)² - 1 = **0** 
 > 
-> ### 🧮 Calculs des appels algo3 :
+> ### Calculs des appels algo3 :
 > **Processus :** z = algo1(a=x, b=y), puis algo2(x=(x-y), y=z)
 > 
 > - **r9** = algo3() → x=1, y=0
@@ -224,7 +224,7 @@ Le premier algorigramme réalisera la demande à l'utilisateur et appellera `isE
 
 > ### 📝 **RÉPONSE**
 > 
-> ### 🔧 Algorigramme `isEven` :
+> ### Algorigramme `isEven` :
 > 
 > ```mermaid
 > flowchart TD
@@ -236,7 +236,7 @@ Le premier algorigramme réalisera la demande à l'utilisateur et appellera `isE
 >     E --> F
 > ```
 > 
-> ### 🔧 Algorigramme `askEven` :
+> ### Algorigramme `askEven` :
 > 
 > ```mermaid
 > flowchart TD
@@ -263,7 +263,7 @@ Ecrire un algorigramme et un algorithme permettant d’échanger les valeurs de 
 
 > ### 📝 **RÉPONSE**
 > 
-> ### 🔧 Algorigramme `echangeNaif` :
+> ### Algorigramme `echangeNaif` :
 > 
 > ```mermaid
 > flowchart TD
@@ -273,7 +273,7 @@ Ecrire un algorigramme et un algorithme permettant d’échanger les valeurs de 
 >     D --> E([fin])
 > ```
 > 
-> ### ⚡ Algorithme `echangeNaif` :
+> ### Algorithme `echangeNaif` :
 > 
 > ```
 > DEBUT echangeNaif
@@ -290,6 +290,20 @@ Ecrire un algorigramme et un algorithme permettant d’échanger les valeurs de 
 
 ### 2.2 - Echange malin
 Ecrire un algorithme permettant d’échanger les valeurs de deux variables numériques `xa` et `xb` sans utiliser d’autres variables. 
+
+> ### 📝 **RÉPONSE**
+> 
+> ### Algorithme `echangeMalin` :
+> 
+> ```
+> DEBUT echangeMalin
+>   PARAM ENTIER xa
+>   PARAM ENTIER xb
+>   xa ← xa + xb
+>   xb ← xa - xb
+>   xa ← xa - xb
+> FIN
+> ```
 
 ### 2.3 - Polynome basique
 Ecrire un algorithme permettant de calculer la valeur de la fonction `f(x) = 3x² - 8x + 7` en fonction d'un paramètre `x`.
