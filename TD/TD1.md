@@ -367,15 +367,15 @@ Ecrire un algorigramme et un algorithme demandant à l'utilisateur un nombre `x`
 >   VARIABLE ENTIER y
 >   VARIABLE ENTIER resultat ← 1
 >   VARIABLE ENTIER i ← 1
->   AFFICHER "Entrez le nombre x : "
->   SAISIR x
->   AFFICHER "Entrez l'exposant y : "
->   SAISIR y
+>   ECRIRE "Entrez le nombre x : "
+>   LIRE x
+>   ECRIRE "Entrez l'exposant y : "
+>   LIRE y
 >   TANT QUE i ≤ y FAIRE
 >     resultat ← resultat × x
 >     i ← i + 1
 >   FIN TANT QUE
->   AFFICHER "Résultat : ", resultat
+>   ECRIRE "Résultat : ", resultat
 > FIN
 > ```
 
@@ -383,6 +383,52 @@ Ecrire un algorigramme et un algorithme demandant à l'utilisateur un nombre `x`
 
 ### 3.2 - Prix unitaire
 Ecrire un algorigramme et un algorithme demandant à l’utilisateur un prix unitaire et un nombre d’articles. Cet algorithme devra pouvoir être exécuté avec un argument `taxrate` pour le taux de taxe. Informez l’utilisateur du prix TTC total et par article. Enfin, renvoyez le prix TTC total.
+
+> ### 📝 **RÉPONSE**
+> 
+> ### Algorigramme `prixUnitaire` :
+> 
+> ```mermaid
+> flowchart TD
+>     A([prixUnitaire]) --> B[/Saisie prixHT/]
+>     B --> C[/Saisie nombreArticles/]
+>     C --> D[totalHT ← prixHT × nombreArticles]
+>     D --> E[totalTTC ← totalHT × (1 + taxrate)]
+>     E --> F[prixTTCUnitaire ← totalTTC ÷ nombreArticles]
+>     F --> G[/Afficher "Prix HT total : ", totalHT/]
+>     G --> H[/Afficher "Prix TTC total : ", totalTTC/]
+>     H --> I[/Afficher "Prix TTC par article : ", prixTTCUnitaire/]
+>     I --> J[RETOUR totalTTC]
+>     J --> K([fin])
+> ```
+> 
+> ### Algorithme `prixUnitaire` :
+> 
+> ```
+> DEBUT prixUnitaire
+>   PARAM REEL taxrate DEFAUT 0.20
+>   VARIABLE REEL prixHT
+>   VARIABLE ENTIER nombreArticles
+>   VARIABLE REEL totalHT
+>   VARIABLE REEL totalTTC
+>   VARIABLE REEL prixTTCUnitaire
+>   
+>   ECRIRE "Entrez le prix unitaire HT : "
+>   LIRE prixHT
+>   ECRIRE "Entrez le nombre d'articles : "
+>   LIRE nombreArticles
+>   
+>   totalHT ← prixHT × nombreArticles
+>   totalTTC ← totalHT × (1 + taxrate)
+>   prixTTCUnitaire ← totalTTC ÷ nombreArticles
+>   
+>   ECRIRE "Prix HT total : ", totalHT, "€"
+>   ECRIRE "Prix TTC total : ", totalTTC, "€"
+>   ECRIRE "Prix TTC par article : ", prixTTCUnitaire, "€"
+>   
+>   SORTIE totalTTC
+> FIN
+> ```
 
 ### 3.3 - H+1
 Ecrire un algorithme qui, avec deux paramètres `h` et `m` (respectivement : heures et minutes), renvoi l’heure une minute après.
