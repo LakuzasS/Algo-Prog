@@ -64,7 +64,7 @@ FIN
 > - `a` : variable locale pour calcul intermédiaire
 > - `b` : variable locale pour calcul intermédiaire
 > - `c` : variable locale pour calcul intermédiaire
-> - `r` : variable locale (utilisée mais non déclarée ⚠️)
+> - `r` : variable locale (utilisée mais non déclarée)
 > 
 > ### Instructions exécutées :
 > 1. `VARIABLE ENTIER a ← 1` - Initialisation de a à 1
@@ -261,6 +261,8 @@ Le premier algorigramme réalisera la demande à l'utilisateur et appellera `isE
 ### 2.1 - Echange naïf
 Ecrire un algorigramme et un algorithme permettant d’échanger les valeurs de deux variables `xa` et `xb`. 
 
+---
+
 > ### 📝 **RÉPONSE**
 > 
 > ### Algorigramme `echangeNaif` :
@@ -291,6 +293,8 @@ Ecrire un algorigramme et un algorithme permettant d’échanger les valeurs de 
 ### 2.2 - Echange malin
 Ecrire un algorithme permettant d’échanger les valeurs de deux variables numériques `xa` et `xb` sans utiliser d’autres variables. 
 
+---
+
 > ### 📝 **RÉPONSE**
 > 
 > ### Algorithme `echangeMalin` :
@@ -304,6 +308,8 @@ Ecrire un algorithme permettant d’échanger les valeurs de deux variables num�
 >   xa ← xa - xb
 > FIN
 > ```
+
+---
 
 ### 2.3 - Polynome basique
 Ecrire un algorithme permettant de calculer la valeur de la fonction `f(x) = 3x² - 8x + 7` en fonction d'un paramètre `x`.
@@ -384,6 +390,8 @@ Ecrire un algorigramme et un algorithme demandant à l'utilisateur un nombre `x`
 ### 3.2 - Prix unitaire
 Ecrire un algorigramme et un algorithme demandant à l’utilisateur un prix unitaire et un nombre d’articles. Cet algorithme devra pouvoir être exécuté avec un argument `taxrate` pour le taux de taxe. Informez l’utilisateur du prix TTC total et par article. Enfin, renvoyez le prix TTC total.
 
+---
+
 > ### 📝 **RÉPONSE**
 > 
 > ### Algorigramme `prixUnitaire` :
@@ -430,8 +438,40 @@ Ecrire un algorigramme et un algorithme demandant à l’utilisateur un prix uni
 > FIN
 > ```
 
+--- 
+
 ### 3.3 - H+1
 Ecrire un algorithme qui, avec deux paramètres `h` et `m` (respectivement : heures et minutes), renvoi l’heure une minute après.
+
+---
+
+> ### 📝 **RÉPONSE**
+> 
+> ### Algorithme `heurePlusUne` :
+> 
+> ```
+> DEBUT heurePlusUne
+>   PARAM ENTIER h
+>   PARAM ENTIER m
+>   VARIABLE ENTIER nouvelleHeure
+>   VARIABLE ENTIER nouvelleMinute
+>   
+>   nouvelleMinute ← m + 1
+>   nouvelleHeure ← h
+>   
+>   SI nouvelleMinute = 60 ALORS
+>     nouvelleMinute ← 0
+>     nouvelleHeure ← nouvelleHeure + 1
+>     SI nouvelleHeure = 24 ALORS
+>       nouvelleHeure ← 0
+>     FIN SI
+>   FIN SI
+>   
+>   SORTIE nouvelleHeure, nouvelleMinute
+> FIN
+> ```
+
+---
 
 ### 3.4 - Photocopies dégressives
 Soit un magasin facturant une photocopie 20c l’unité avec un barème dégressif : au-delà de 10 photocopies, les vingt photocopies suivantes sont facturées 10c l’unité. Au-delà encore de ce nombre, chaque photocopie est facturée 8c.
