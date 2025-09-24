@@ -476,3 +476,45 @@ Ecrire un algorithme qui, avec deux paramètres `h` et `m` (respectivement : heu
 ### 3.4 - Photocopies dégressives
 Soit un magasin facturant une photocopie 20c l’unité avec un barème dégressif : au-delà de 10 photocopies, les vingt photocopies suivantes sont facturées 10c l’unité. Au-delà encore de ce nombre, chaque photocopie est facturée 8c.
 Ecrire un algorigramme et un algorithme renvoyant, en fonction d’un nombre de photocopie, un prix total en euros (arrondi au cent).
+
+---
+
+> ### 📝 **RÉPONSE**
+> 
+> ### Algorigramme `photocopiesDegressives` :
+> 
+> ```mermaid
+> flowchart TD
+>     A([photocopiesDegressives]) --> B["prixTotal ← 0"]
+>     B --> C{nb ≤ 10}
+>     C -->|Oui| D["prixTotal ← nb × 0.20"]
+>     C -->|Non| E{nb ≤ 30}
+>     E -->|Oui| F["prixTotal ← 10 × 0.20 + (nb - 10) × 0.10"]
+>     E -->|Non| G["prixTotal ← 10 × 0.20 + 20 × 0.10 + (nb - 30) × 0.08"]
+>     D --> H["RETOUR ARRONDI(prixTotal, 2)"]
+>     F --> H
+>     G --> H
+>     H --> I([fin])
+> ```
+> 
+> ### Algorithme `photocopiesDegressives` :
+> 
+> ```
+> DEBUT photocopiesDegressives
+>   PARAM ENTIER nb
+>   VARIABLE REEL prixTotal ← 0
+>   
+>   SI nb ≤ 10 ALORS
+>     prixTotal ← nb × 0.20
+>   SINON SI nb ≤ 30 ALORS
+>     prixTotal ← 10 × 0.20 + (nb - 10) × 0.10
+>   SINON
+>     prixTotal ← 10 × 0.20 + 20 × 0.10 + (nb - 30) × 0.08
+>   FIN SI
+>   
+>   SORTIE ARRONDI(prixTotal, 2)
+> FIN
+> ```
+> 
+
+---
