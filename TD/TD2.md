@@ -41,6 +41,43 @@ Créez la fonction `EGAL` qui prend deux paramètres :
 
 Cette fonction vérifie si les deux chaînes sont égales en ignorant la casse.
 
+---
+
+> ### 📝 **RÉPONSE**
+> 
+> ### Algorigramme `EGAL` :
+> 
+> ```mermaid
+> flowchart TD
+>     A([EGAL]) --> B[gaucheMin ← MIN gauche]
+>     B --> C[droiteMin ← MIN droite]
+>     C --> D{gaucheMin = droiteMin}
+>     D -->|Oui| E[RETOUR VRAI]
+>     D -->|Non| F[RETOUR FAUX]
+>     E --> G([fin])
+>     F --> G
+> ```
+> 
+> ### Algorithme `EGAL` :
+> 
+> ```
+> DEBUT EGAL
+>   PARAM CHAINE gauche
+>   PARAM CHAINE droite
+>   VARIABLE CHAINE gaucheMin
+>   VARIABLE CHAINE droiteMin
+>   gaucheMin ← APPEL MIN AVEC gauche
+>   droiteMin ← APPEL MIN AVEC droite
+>   SI gaucheMin = droiteMin ALORS
+>     SORTIE VRAI
+>   SINON
+>     SORTIE FAUX
+>   FIN SI
+> FIN
+> ```
+
+---
+
 ### 1.2 DANSLISTE
 
 Créez la fonction `DANSLISTE` qui prend trois paramètres (dont un facultatif) :
@@ -116,3 +153,7 @@ Réponse D
 ```
 
 X est remplacé par A, B, C ou D selon la bonne réponse.
+
+
+## Rendu au prof
+**Sujet :** 
