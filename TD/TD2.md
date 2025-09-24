@@ -283,7 +283,7 @@ Si le joueur gagne au dernier tour, le programme s'arrête.
 > ```mermaid
 > flowchart TD
 >     A([TOUR]) --> B["toutesQuestions = LSQUESTIONS()"]
->     B --> C["questionChoisie = ''"]
+>     B --> C["questionChoisie = vide"]
 >     C --> D["i = 0"]
 >     D --> E{"i < TAILLE(toutesQuestions)"}
 >     E -->|NON| F[/"Erreur: Plus de questions"/]
@@ -292,7 +292,7 @@ Si le joueur gagne au dernier tour, le programme s'arrête.
 >     G -->|NON| I["i = i + 1"]
 >     I --> E
 >     H --> J["donneesQuestion = UNEQUESTION(questionChoisie)"]
->     J --> K[/"Afficher: Tour + numeroTour"/]
+>     J --> K[/"Afficher Tour numeroTour"/]
 >     K --> L[/"Afficher donneesQuestion[0]"/]
 >     L --> M[/"Afficher A: donneesQuestion[1]"/]
 >     M --> N[/"Afficher B: donneesQuestion[2]"/]
@@ -300,26 +300,25 @@ Si le joueur gagne au dernier tour, le programme s'arrête.
 >     O --> P[/"Afficher D: donneesQuestion[4]"/]
 >     P --> Q[/Saisie reponseUtilisateur/]
 >     Q --> R["reponseUtilisateurMaj = MAJ(reponseUtilisateur)"]
->     R --> S["optionsValides = ['A', 'B', 'C', 'D']"]
->     S --> T{"DANSLISTE(reponseUtilisateurMaj, optionsValides)"}
->     T -->|NON| U[/"Afficher: Réponse invalide"/]
+>     R --> S{"DANSLISTE(reponseUtilisateurMaj, optionsValides)"}
+>     S -->|NON| U[/"Afficher: Réponse invalide"/]
 >     U --> Q
->     T -->|OUI| V{"reponseUtilisateurMaj = donneesQuestion[5]"}
+>     S -->|OUI| V{"reponseUtilisateurMaj = donneesQuestion[5]"}
 >     V -->|OUI| W[/"Afficher: Bonne réponse!"/]
 >     V -->|NON| X[/"Afficher: Mauvaise réponse!"/]
->     X --> Y[/"Afficher: Retour au menu"/]
+>     X --> Y[/"Afficher bonne réponse"/]
 >     Y --> Z1[RETOUR FAUX]
 >     W --> Z2["cagnotte = POGNON(numeroTour)"]
 >     Z2 --> Z3[/"Afficher cagnotte"/]
 >     Z3 --> Z4{"numeroTour = 10"}
->     Z4 -->|OUI| Z5[/"Afficher: Vous avez gagné!"/]
+>     Z4 -->|OUI| Z5[/"Afficher: Victoire totale!"/]
 >     Z5 --> Z6[RETOUR FAUX]
->     Z4 -->|NON| Z7[/"Afficher: [C]ontinuer ou [A]rrêter"/]
+>     Z4 -->|NON| Z7[/"Demander: Continuer ou Arrêter"/]
 >     Z7 --> Z8[/Saisie choixContinuer/]
 >     Z8 --> Z9["choixContinuerMaj = MAJ(choixContinuer)"]
->     Z9 --> Z10{"choixContinuerMaj = 'C'"}
+>     Z9 --> Z10{"choixContinuerMaj = C"}
 >     Z10 -->|OUI| Z11[RETOUR VRAI]
->     Z10 -->|NON| Z12{"choixContinuerMaj = 'A'"}
+>     Z10 -->|NON| Z12{"choixContinuerMaj = A"}
 >     Z12 -->|OUI| Z13[/"Afficher: Félicitations!"/]
 >     Z13 --> Z14[RETOUR FAUX]
 >     Z12 -->|NON| Z15[/"Afficher: Choix invalide"/]
@@ -347,10 +346,11 @@ Si le joueur gagne au dernier tour, le programme s'arrête.
 >   VARIABLE REEL cagnotte
 >   VARIABLE CHAINE choixContinuer
 >   VARIABLE CHAINE choixContinuerMaj
->   VARIABLE BOOLEEN continuer ← VRAI
+>   VARIABLE BOOLEEN continuer
 >   
 >   toutesQuestions ← LSQUESTIONS()
 >   questionChoisie ← ""
+>   optionsValides ← ["A", "B", "C", "D"]
 >   
 >   POUR i DE 0 A TAILLE(toutesQuestions) - 1 FAIRE
 >     SI DANSLISTE(toutesQuestions[i], questionsUtilisees) = FAUX ALORS
@@ -359,58 +359,63 @@ Si le joueur gagne au dernier tour, le programme s'arrête.
 >     FIN SI
 >   FIN POUR
 >   
+>   SI questionChoisie = "" ALORS
+>     ECRIRE "Erreur: Aucune question disponible"
+>     RETOUR FAUX
+>   FIN SI
+>   
 >   donneesQuestion ← UNEQUESTION(questionChoisie)
 >   
->   ECRIRE "=== Tour ", numeroTour, " ==="
+>   ECRIRE "=== TOUR ", numeroTour, " ==="
 >   ECRIRE donneesQuestion[0]
 >   ECRIRE "A: ", donneesQuestion[1]
 >   ECRIRE "B: ", donneesQuestion[2]
 >   ECRIRE "C: ", donneesQuestion[3]
 >   ECRIRE "D: ", donneesQuestion[4]
 >   
->   optionsValides ← ["A", "B", "C", "D"]
 >   continuer ← VRAI
->   
 >   TANT QUE continuer = VRAI FAIRE
->     ECRIRE "Votre réponse (A, B, C ou D) : "
+>     ECRIRE "Votre réponse (A, B, C ou D): "
 >     LIRE reponseUtilisateur
 >     reponseUtilisateurMaj ← MAJ(reponseUtilisateur)
 >     
 >     SI DANSLISTE(reponseUtilisateurMaj, optionsValides) = VRAI ALORS
 >       continuer ← FAUX
 >     SINON
->       ECRIRE "Réponse invalide, veuillez saisir A, B, C ou D."
+>       ECRIRE "Réponse invalide! Veuillez saisir A, B, C ou D."
 >     FIN SI
 >   FIN TANT QUE
 >   
 >   SI reponseUtilisateurMaj = donneesQuestion[5] ALORS
->     ECRIRE "Bonne réponse !"
+>     ECRIRE "Bonne réponse!"
 >     cagnotte ← POGNON(numeroTour)
->     ECRIRE "Cagnotte actuelle : ", cagnotte, " €"
+>     ECRIRE "Cagnotte actuelle: ", cagnotte, " €"
 >     
 >     SI numeroTour = 10 ALORS
->       ECRIRE "Félicitations ! Vous avez terminé le jeu avec ", cagnotte, " € !"
+>       ECRIRE "FÉLICITATIONS! Vous avez terminé le jeu!"
+>       ECRIRE "Vous repartez avec ", cagnotte, " € !"
 >       RETOUR FAUX
 >     SINON
 >       continuer ← VRAI
 >       TANT QUE continuer = VRAI FAIRE
->         ECRIRE "Voulez-vous [C]ontinuer ou [A]rrêter ?"
+>         ECRIRE "Voulez-vous [C]ontinuer ou [A]rrêter?"
 >         LIRE choixContinuer
 >         choixContinuerMaj ← MAJ(choixContinuer)
 >         
 >         SI choixContinuerMaj = "C" ALORS
 >           RETOUR VRAI
 >         SINON SI choixContinuerMaj = "A" ALORS
->           ECRIRE "Félicitations ! Vous repartez avec ", cagnotte, " € !"
+>           ECRIRE "Félicitations! Vous repartez avec ", cagnotte, " € !"
 >           RETOUR FAUX
 >         SINON
->           ECRIRE "Choix invalide, veuillez saisir C ou A."
+>           ECRIRE "Choix invalide! Veuillez saisir C ou A."
 >         FIN SI
 >       FIN TANT QUE
 >     FIN SI
 >   SINON
->     ECRIRE "Mauvaise réponse ! La bonne réponse était : ", donneesQuestion[5]
->     ECRIRE "Vous perdez tout. Retour au menu principal."
+>     ECRIRE "Mauvaise réponse!"
+>     ECRIRE "La bonne réponse était: ", donneesQuestion[5]
+>     ECRIRE "Vous perdez tout! Retour au menu principal."
 >     RETOUR FAUX
 >   FIN SI
 > FIN
@@ -418,7 +423,7 @@ Si le joueur gagne au dernier tour, le programme s'arrête.
 
 ---
 
-## 3.0 Extenstion
+## 3.0 Extension
 
 ### 3.1 Timer
 
@@ -430,54 +435,55 @@ Si cet écart de temps est supérieur à 30, et qu'aucune saisie n'a été réal
 
 > ### 📝 **RÉPONSE**
 > 
-> ### Algorigramme `SAISIE_AVEC_TIMER` :
+> ### Algorigramme `SAISIE_TIMER` :
 > 
 > ```mermaid
 > flowchart TD
->     A([SAISIE_AVEC_TIMER]) --> B["tempsDebut = MST()"]
->     B --> C["reponse = ''"]
->     C --> D["saisieEffectuee = FAUX"]
+>     A([SAISIE_TIMER]) --> B["tempsDebut = MST()"]
+>     B --> C["saisieEffectuee = FAUX"]
+>     C --> D["reponse = vide"]
 >     D --> E["tempsActuel = MST()"]
->     E --> F["ecartTemps = tempsActuel - tempsDebut"]
->     F --> G{"ecartTemps >= 30 ET saisieEffectuee = FAUX"}
->     G -->|OUI| H[/"Afficher: Temps écoulé!"/]
->     H --> I["RETOUR TIMEOUT"]
->     G -->|NON| J["resultatLecture = LIRENB(FONCTION_CALLBACK)"]
->     J --> K{"resultatLecture != ''"}
->     K -->|OUI| L["reponse = resultatLecture"]
->     L --> M["saisieEffectuee = VRAI"]
->     M --> N[RETOUR reponse]
->     K -->|NON| E
->     I --> O([FIN])
->     N --> O
+>     E --> F["ecart = tempsActuel - tempsDebut"]
+>     F --> G{"ecart > 30"}
+>     G -->|OUI| H[RETOUR FAUX]
+>     G -->|NON| I["resultat = LIRENB(CALLBACK_SAISIE)"]
+>     I --> J{"resultat != vide"}
+>     J -->|OUI| K["reponse = resultat"]
+>     K --> L["saisieEffectuee = VRAI"]
+>     L --> M[RETOUR reponse]
+>     J -->|NON| N{"saisieEffectuee = FAUX"}
+>     N -->|OUI| E
+>     N -->|NON| E
+>     H --> O([FIN])
+>     M --> O
 > ```
 > 
-> ### Algorithme `SAISIE_AVEC_TIMER` :
+> ### Algorithme `SAISIE_TIMER` :
 > 
 > ```
-> DEBUT SAISIE_AVEC_TIMER
+> DEBUT SAISIE_TIMER
 >   VARIABLE ENTIER tempsDebut
 >   VARIABLE ENTIER tempsActuel
->   VARIABLE ENTIER ecartTemps
+>   VARIABLE ENTIER ecart
+>   VARIABLE BOOLEEN saisieEffectuee
 >   VARIABLE CHAINE reponse
->   VARIABLE BOOLEEN saisieEffectuee ← FAUX
->   VARIABLE CHAINE resultatLecture
+>   VARIABLE CHAINE resultat
 >   
 >   tempsDebut ← MST()
+>   saisieEffectuee ← FAUX
 >   reponse ← ""
 >   
 >   TANT QUE saisieEffectuee = FAUX FAIRE
 >     tempsActuel ← MST()
->     ecartTemps ← tempsActuel - tempsDebut
+>     ecart ← tempsActuel - tempsDebut
 >     
->     SI ecartTemps >= 30 ALORS
->       ECRIRE "Temps écoulé ! (30 secondes)"
->       RETOUR "TIMEOUT"
+>     SI ecart > 30 ALORS
+>       RETOUR FAUX
 >     FIN SI
 >     
->     resultatLecture ← LIRENB(FONCTION_SAISIE_COMPLETE)
->     SI resultatLecture != "" ALORS
->       reponse ← resultatLecture
+>     resultat ← LIRENB(CALLBACK_SAISIE)
+>     SI resultat != "" ALORS
+>       reponse ← resultat
 >       saisieEffectuee ← VRAI
 >     FIN SI
 >   FIN TANT QUE
@@ -486,39 +492,17 @@ Si cet écart de temps est supérieur à 30, et qu'aucune saisie n'a été réal
 > FIN
 > ```
 > 
-> ### Fonction callback `FONCTION_SAISIE_COMPLETE` :
+> ### Algorithme `CALLBACK_SAISIE` :
 > 
 > ```
-> DEBUT FONCTION_SAISIE_COMPLETE
->   PARAM CHAINE saisieUtilisateur
->   RETOUR saisieUtilisateur
+> DEBUT CALLBACK_SAISIE
+>   VARIABLE CHAINE saisie
+>   LIRE saisie
+>   RETOUR saisie
 > FIN
 > ```
-> 
-> ### Modification de la fonction `TOUR` avec timer :
-> 
-> ```
->   ECRIRE "Votre réponse (A, B, C ou D) - Vous avez 30 secondes : "
->   reponseUtilisateur ← SAISIE_AVEC_TIMER()
->   
->   SI reponseUtilisateur = "TIMEOUT" ALORS
->     ECRIRE "Temps écoulé ! Mauvaise réponse par défaut."
->     ECRIRE "La bonne réponse était : ", donneesQuestion[5]
->     ECRIRE "Vous perdez tout. Retour au menu principal."
->     RETOUR FAUX
->   FIN SI
->   
->   reponseUtilisateurMaj ← MAJ(reponseUtilisateur)
->   
->   SI DANSLISTE(reponseUtilisateurMaj, optionsValides) = FAUX ALORS
->     ECRIRE "Réponse invalide ! Mauvaise réponse par défaut."
->     ECRIRE "La bonne réponse était : ", donneesQuestion[5]
->     ECRIRE "Vous perdez tout. Retour au menu principal."
->     RETOUR FAUX
->   FIN SI
-> ```
 
----
+
 
 ## Annexes
 
