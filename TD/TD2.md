@@ -155,6 +155,49 @@ a(n) = a(n−1) ⋅ 2.16
 
 Avec n étant le numéro du tour, sachant que $$a(1)=1000$$.
 
+---
+
+> ### 📝 **RÉPONSE**
+> 
+> ### Algorigramme `POGNON` :
+> 
+> ```mermaid
+> flowchart TD
+>     A([POGNON]) --> B{"tour = 1"}
+>     B -->|OUI| C[RETOUR 1000]
+>     B -->|NON| D["resultat = 1000"]
+>     D --> E["i = 2"]
+>     E --> F{"i <= tour"}
+>     F -->|NON| G[RETOUR resultat]
+>     F -->|OUI| H["resultat = resultat × 2.16"]
+>     H --> I["i = i + 1"]
+>     I --> F
+>     C --> J([FIN])
+>     G --> J
+> ```
+> 
+> ### Algorithme `POGNON` :
+> 
+> ```
+> DEBUT POGNON
+>   PARAM ENTIER tour
+>   VARIABLE REEL resultat
+>   VARIABLE ENTIER i
+>   
+>   SI tour = 1 ALORS
+>     RETOUR 1000
+>   SINON
+>     resultat ← 1000
+>     POUR i DE 2 A tour FAIRE
+>       resultat ← resultat × 2.16
+>     FIN POUR
+>     RETOUR resultat
+>   FIN SI
+> FIN
+> ```
+
+---
+
 ## 2.0 Jeu de base
 
 ### 2.1 Menu
