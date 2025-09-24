@@ -20,7 +20,7 @@ FIN
 
 ---
 
-> ## 📝 **RÉPONSE - Algo 1**
+> ### 📝 **RÉPONSE**
 > 
 > ### 🔢 Variables utilisées :
 > - `a` : paramètre d'entrée
@@ -56,7 +56,7 @@ FIN
 
 ---
 
-> ## 📝 **RÉPONSE - Algo 2**
+> ### 📝 **RÉPONSE**
 > 
 > ### 🔢 Variables utilisées :
 > - `x` : paramètre d'entrée
@@ -92,7 +92,7 @@ FIN
 
 ---
 
-> ## 📝 **RÉPONSE - Algo 3**
+> ### 📝 **RÉPONSE**
 > 
 > ### 🔢 Variables utilisées :
 > - `x` : paramètre d'entrée (valeur par défaut : 1)
@@ -132,7 +132,7 @@ r12 ← APPEL algo3 AVEC a=0, b=5
 
 ---
 
-> ## 📝 **RÉPONSE - Calculs des appels**
+> ### 📝 **RÉPONSE**
 > 
 > ### 🧮 Calculs des appels algo1 :
 > **Formule :** `(b × (a+1)) - (a+1) = (a+1)(b-1)`
@@ -195,9 +195,7 @@ Remplacez les `?` et complétez les éventuels éléments manquants.
 
 ---
 
-> ## 📝 **RÉPONSE - Algorigramme askEven complété**
-> 
-> ### Algorigramme corrigé :
+> ### 📝 **RÉPONSE**
 > 
 > ```mermaid
 > flowchart TD
@@ -224,7 +222,7 @@ Le premier algorigramme réalisera la demande à l'utilisateur et appellera `isE
 
 ---
 
-> ## 📝 **RÉPONSE - Séparation en deux algorigrammes**
+> ## 📝 **RÉPONSE**
 > 
 > ### 🔧 Algorigramme `isEven` :
 > 
@@ -262,6 +260,18 @@ Le premier algorigramme réalisera la demande à l'utilisateur et appellera `isE
 
 ### 2.1 - Echange naïf
 Ecrire un algorigramme et un algorithme permettant d’échanger les valeurs de deux variables `xa` et `xb`. 
+
+> ## 📝 **RÉPONSE**
+> 
+> ### 🔧 Algorigramme `echangeNaif` :
+> 
+> ```mermaid
+> flowchart TD
+>     A([echangeNaif]) --> B[temp ← xa]
+>     B --> C[xa ← xb]
+>     C --> D[xb ← temp]
+>     D --> E([fin])
+> ```
 
 ### 2.2 - Echange malin
 Ecrire un algorithme permettant d’échanger les valeurs de deux variables numériques `xa` et `xb` sans utiliser d’autres variables. 
