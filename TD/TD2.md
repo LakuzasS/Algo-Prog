@@ -49,9 +49,9 @@ Cette fonction vérifie si les deux chaînes sont égales en ignorant la casse.
 > 
 > ```mermaid
 > flowchart TD
->     A([EGAL]) --> B[gaucheMin ← MIN(gauche)]
->     B --> C[droiteMin ← MIN(droite)]
->     C --> D{gaucheMin = droiteMin}
+>     A([EGAL]) --> B["gaucheMin = MIN(gauche)"]
+>     B --> C["droiteMin = MIN(droite)"]
+>     C --> D{"gaucheMin = droiteMin"}
 >     D -->|OUI| E[RETOUR VRAI]
 >     D -->|NON| F[RETOUR FAUX]
 >     E --> G([FIN])
