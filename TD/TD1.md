@@ -222,7 +222,7 @@ Le premier algorigramme réalisera la demande à l'utilisateur et appellera `isE
 
 ---
 
-> ## 📝 **RÉPONSE**
+> ### 📝 **RÉPONSE**
 > 
 > ### 🔧 Algorigramme `isEven` :
 > 
@@ -261,7 +261,7 @@ Le premier algorigramme réalisera la demande à l'utilisateur et appellera `isE
 ### 2.1 - Echange naïf
 Ecrire un algorigramme et un algorithme permettant d’échanger les valeurs de deux variables `xa` et `xb`. 
 
-> ## 📝 **RÉPONSE**
+> ### 📝 **RÉPONSE**
 > 
 > ### 🔧 Algorigramme `echangeNaif` :
 > 
@@ -272,6 +272,21 @@ Ecrire un algorigramme et un algorithme permettant d’échanger les valeurs de 
 >     C --> D[xb ← temp]
 >     D --> E([fin])
 > ```
+> 
+> ### ⚡ Algorithme `echangeNaif` :
+> 
+> ```
+> DEBUT echangeNaif
+>   PARAM ENTIER xa
+>   PARAM ENTIER xb
+>   VARIABLE ENTIER temp
+>   temp ← xa
+>   xa ← xb
+>   xb ← temp
+> FIN
+> ```
+
+---
 
 ### 2.2 - Echange malin
 Ecrire un algorithme permettant d’échanger les valeurs de deux variables numériques `xa` et `xb` sans utiliser d’autres variables. 
