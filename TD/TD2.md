@@ -210,6 +210,58 @@ Si l'utilisateur choisit "Q" (peu importe la casse), le programme s'arrête.
 Si l'utilisateur choisit "J", le jeu se lance au premier tour.
 Si la saisie ne correspond à rien, demandez à nouveau à l'utilisateur.
 
+---
+
+> ### 📝 **RÉPONSE**
+> 
+> ### Algorigramme `MENU` :
+> 
+> ```mermaid
+> flowchart TD
+>     A([MENU]) --> B[/"Afficher: Que voulez-vous faire ?"/]
+>     B --> C[/"Afficher: [J]ouer"/]
+>     C --> D[/"Afficher: [Q]uitter"/]
+>     D --> E[/Saisie choix/]
+>     E --> F["choixMaj = MAJ(choix)"]
+>     F --> G{"choixMaj = 'J'"}
+>     G -->|OUI| H[RETOUR VRAI]
+>     G -->|NON| I{"choixMaj = 'Q'"}
+>     I -->|OUI| J[RETOUR FAUX]
+>     I -->|NON| K[/"Afficher: Saisie invalide"/]
+>     K --> B
+>     H --> L([FIN])
+>     J --> L
+> ```
+> 
+> ### Algorithme `MENU` :
+> 
+> ```
+> DEBUT MENU
+>   VARIABLE CHAINE choix
+>   VARIABLE CHAINE choixMaj
+>   VARIABLE BOOLEEN continuer ← VRAI
+>   
+>   TANT QUE continuer = VRAI FAIRE
+>     ECRIRE "Que voulez-vous faire ?"
+>     ECRIRE "[J]ouer"
+>     ECRIRE "[Q]uitter"
+>     LIRE choix
+>     
+>     choixMaj ← MAJ(choix)
+>     
+>     SI choixMaj = "J" ALORS
+>       RETOUR VRAI
+>     SINON SI choixMaj = "Q" ALORS
+>       RETOUR FAUX
+>     SINON
+>       ECRIRE "Saisie invalide, veuillez recommencer."
+>     FIN SI
+>   FIN TANT QUE
+> FIN
+> ```
+
+---
+
 ### 2.2 TOUR
 
 Créez la fonction `TOUR`, qui prend un paramètre entier, le numéro du tour, ainsi que la liste des questions déjà posées (sous forme de clefs).
