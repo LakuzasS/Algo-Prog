@@ -441,7 +441,7 @@ Si cet écart de temps est supérieur à 30, et qu'aucune saisie n'a été réal
 >     E --> F["ecartTemps = tempsActuel - tempsDebut"]
 >     F --> G{"ecartTemps >= 30 ET saisieEffectuee = FAUX"}
 >     G -->|OUI| H[/"Afficher: Temps écoulé!"/]
->     H --> I[RETOUR "TIMEOUT"]
+>     H --> I["RETOUR TIMEOUT"]
 >     G -->|NON| J["resultatLecture = LIRENB(FONCTION_CALLBACK)"]
 >     J --> K{"resultatLecture != ''"}
 >     K -->|OUI| L["reponse = resultatLecture"]
