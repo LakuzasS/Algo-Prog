@@ -89,6 +89,62 @@ Créez la fonction `DANSLISTE` qui prend trois paramètres (dont un facultatif) 
 
 Cette fonction vérifie si la valeur `val` est dans la liste `liste` et renvoie un booléen.
 
+---
+
+> ### 📝 **RÉPONSE**
+> 
+> ### Algorigramme `DANSLISTE` :
+> 
+> ```mermaid
+> flowchart TD
+>     A([DANSLISTE]) --> B["i = 0"]
+>     B --> C["n = TAILLE(liste)"]
+>     C --> D{"i < n"}
+>     D -->|NON| E[RETOUR FAUX]
+>     D -->|OUI| F{"ignorerCasse = VRAI"}
+>     F -->|OUI| G{"EGAL(val, liste[i]) = VRAI"}
+>     F -->|NON| H{"val = liste[i]"}
+>     G -->|OUI| I[RETOUR VRAI]
+>     G -->|NON| J["i = i + 1"]
+>     H -->|OUI| I
+>     H -->|NON| J
+>     J --> D
+>     I --> K([FIN])
+>     E --> K
+> ```
+> 
+> ### Algorithme `DANSLISTE` :
+> 
+> ```
+> DEBUT DANSLISTE
+>   PARAM val
+>   PARAM LISTE liste
+>   PARAM BOOLEEN ignorerCasse DEFAUT FAUX
+>   VARIABLE ENTIER i
+>   VARIABLE ENTIER n
+>   
+>   i ← 0
+>   n ← TAILLE(liste)
+>   
+>   TANT QUE i < n FAIRE
+>     SI ignorerCasse = VRAI ALORS
+>       SI EGAL(val, liste[i]) = VRAI ALORS
+>         RETOUR VRAI
+>       FIN SI
+>     SINON
+>       SI val = liste[i] ALORS
+>         RETOUR VRAI
+>       FIN SI
+>     FIN SI
+>     i ← i + 1
+>   FIN TANT QUE
+>   
+>   RETOUR FAUX
+> FIN
+> ```
+
+---
+
 ### 1.3 POGNON
 
 Créez la fonction `POGNON` qui prend un paramètre entier `tour` et renvoie l'argent espéré pour le tour,
