@@ -274,6 +274,155 @@ Si le joueur arrête, il remporte la cagnotte et le programme s'arrête.
 Si le joueur continue, passez au tour suivant.
 Si le joueur gagne au dernier tour, le programme s'arrête.
 
+---
+
+> ### 📝 **RÉPONSE**
+> 
+> ### Algorigramme `TOUR` :
+> 
+> ```mermaid
+> flowchart TD
+>     A([TOUR]) --> B["toutesQuestions = LSQUESTIONS()"]
+>     B --> C["questionChoisie = ''"]
+>     C --> D["i = 0"]
+>     D --> E{"i < TAILLE(toutesQuestions)"}
+>     E -->|NON| F[/"Erreur: Plus de questions"/]
+>     E -->|OUI| G{"DANSLISTE(toutesQuestions[i], questionsUtilisees) = FAUX"}
+>     G -->|OUI| H["questionChoisie = toutesQuestions[i]"]
+>     G -->|NON| I["i = i + 1"]
+>     I --> E
+>     H --> J["donneesQuestion = UNEQUESTION(questionChoisie)"]
+>     J --> K[/"Afficher: Tour + numeroTour"/]
+>     K --> L[/"Afficher donneesQuestion[0]"/]
+>     L --> M[/"Afficher A: donneesQuestion[1]"/]
+>     M --> N[/"Afficher B: donneesQuestion[2]"/]
+>     N --> O[/"Afficher C: donneesQuestion[3]"/]
+>     O --> P[/"Afficher D: donneesQuestion[4]"/]
+>     P --> Q[/Saisie reponseUtilisateur/]
+>     Q --> R["reponseUtilisateurMaj = MAJ(reponseUtilisateur)"]
+>     R --> S["optionsValides = ['A', 'B', 'C', 'D']"]
+>     S --> T{"DANSLISTE(reponseUtilisateurMaj, optionsValides)"}
+>     T -->|NON| U[/"Afficher: Réponse invalide"/]
+>     U --> Q
+>     T -->|OUI| V{"reponseUtilisateurMaj = donneesQuestion[5]"}
+>     V -->|OUI| W[/"Afficher: Bonne réponse!"/]
+>     V -->|NON| X[/"Afficher: Mauvaise réponse!"/]
+>     X --> Y[/"Afficher: Retour au menu"/]
+>     Y --> Z1[RETOUR FAUX]
+>     W --> Z2["cagnotte = POGNON(numeroTour)"]
+>     Z2 --> Z3[/"Afficher cagnotte"/]
+>     Z3 --> Z4{"numeroTour = 10"}
+>     Z4 -->|OUI| Z5[/"Afficher: Vous avez gagné!"/]
+>     Z5 --> Z6[RETOUR FAUX]
+>     Z4 -->|NON| Z7[/"Afficher: [C]ontinuer ou [A]rrêter"/]
+>     Z7 --> Z8[/Saisie choixContinuer/]
+>     Z8 --> Z9["choixContinuerMaj = MAJ(choixContinuer)"]
+>     Z9 --> Z10{"choixContinuerMaj = 'C'"}
+>     Z10 -->|OUI| Z11[RETOUR VRAI]
+>     Z10 -->|NON| Z12{"choixContinuerMaj = 'A'"}
+>     Z12 -->|OUI| Z13[/"Afficher: Félicitations!"/]
+>     Z13 --> Z14[RETOUR FAUX]
+>     Z12 -->|NON| Z15[/"Afficher: Choix invalide"/]
+>     Z15 --> Z7
+>     F --> Z16([FIN])
+>     Z1 --> Z16
+>     Z6 --> Z16
+>     Z11 --> Z16
+>     Z14 --> Z16
+> ```
+> 
+> ### Algorithme `TOUR` :
+> 
+> ```
+> DEBUT TOUR
+>   PARAM ENTIER numeroTour
+>   PARAM LISTE questionsUtilisees
+>   VARIABLE LISTE toutesQuestions
+>   VARIABLE CHAINE questionChoisie
+>   VARIABLE ENTIER i
+>   VARIABLE LISTE donneesQuestion
+>   VARIABLE CHAINE reponseUtilisateur
+>   VARIABLE CHAINE reponseUtilisateurMaj
+>   VARIABLE LISTE optionsValides
+>   VARIABLE REEL cagnotte
+>   VARIABLE CHAINE choixContinuer
+>   VARIABLE CHAINE choixContinuerMaj
+>   VARIABLE BOOLEEN continuer ← VRAI
+>   
+>   // Sélection d'une question non utilisée
+>   toutesQuestions ← LSQUESTIONS()
+>   questionChoisie ← ""
+>   
+>   POUR i DE 0 A TAILLE(toutesQuestions) - 1 FAIRE
+>     SI DANSLISTE(toutesQuestions[i], questionsUtilisees) = FAUX ALORS
+>       questionChoisie ← toutesQuestions[i]
+>       SORTIR DE BOUCLE
+>     FIN SI
+>   FIN POUR
+>   
+>   // Récupération des données de la question
+>   donneesQuestion ← UNEQUESTION(questionChoisie)
+>   
+>   // Affichage de la question
+>   ECRIRE "=== Tour ", numeroTour, " ==="
+>   ECRIRE donneesQuestion[0]
+>   ECRIRE "A: ", donneesQuestion[1]
+>   ECRIRE "B: ", donneesQuestion[2]
+>   ECRIRE "C: ", donneesQuestion[3]
+>   ECRIRE "D: ", donneesQuestion[4]
+>   
+>   // Saisie et validation de la réponse
+>   optionsValides ← ["A", "B", "C", "D"]
+>   continuer ← VRAI
+>   
+>   TANT QUE continuer = VRAI FAIRE
+>     ECRIRE "Votre réponse (A, B, C ou D) : "
+>     LIRE reponseUtilisateur
+>     reponseUtilisateurMaj ← MAJ(reponseUtilisateur)
+>     
+>     SI DANSLISTE(reponseUtilisateurMaj, optionsValides) = VRAI ALORS
+>       continuer ← FAUX
+>     SINON
+>       ECRIRE "Réponse invalide, veuillez saisir A, B, C ou D."
+>     FIN SI
+>   FIN TANT QUE
+>   
+>   // Vérification de la réponse
+>   SI reponseUtilisateurMaj = donneesQuestion[5] ALORS
+>     ECRIRE "Bonne réponse !"
+>     cagnotte ← POGNON(numeroTour)
+>     ECRIRE "Cagnotte actuelle : ", cagnotte, " €"
+>     
+>     SI numeroTour = 10 ALORS
+>       ECRIRE "Félicitations ! Vous avez terminé le jeu avec ", cagnotte, " € !"
+>       RETOUR FAUX
+>     SINON
+>       continuer ← VRAI
+>       TANT QUE continuer = VRAI FAIRE
+>         ECRIRE "Voulez-vous [C]ontinuer ou [A]rrêter ?"
+>         LIRE choixContinuer
+>         choixContinuerMaj ← MAJ(choixContinuer)
+>         
+>         SI choixContinuerMaj = "C" ALORS
+>           RETOUR VRAI
+>         SINON SI choixContinuerMaj = "A" ALORS
+>           ECRIRE "Félicitations ! Vous repartez avec ", cagnotte, " € !"
+>           RETOUR FAUX
+>         SINON
+>           ECRIRE "Choix invalide, veuillez saisir C ou A."
+>         FIN SI
+>       FIN TANT QUE
+>     FIN SI
+>   SINON
+>     ECRIRE "Mauvaise réponse ! La bonne réponse était : ", donneesQuestion[5]
+>     ECRIRE "Vous perdez tout. Retour au menu principal."
+>     RETOUR FAUX
+>   FIN SI
+> FIN
+> ```
+
+---
+
 ## 3.0 Extenstion
 
 ### 3.1 Timer
