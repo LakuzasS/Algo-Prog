@@ -49,12 +49,12 @@ Cette fonction vérifie si les deux chaînes sont égales en ignorant la casse.
 > 
 > ```mermaid
 > flowchart TD
->     A([EGAL]) --> B[gaucheMin ← MIN gauche]
->     B --> C[droiteMin ← MIN droite]
+>     A([EGAL]) --> B[gaucheMin ← MIN(gauche)]
+>     B --> C[droiteMin ← MIN(droite)]
 >     C --> D{gaucheMin = droiteMin}
->     D -->|Oui| E[RETOUR VRAI]
->     D -->|Non| F[RETOUR FAUX]
->     E --> G([fin])
+>     D -->|OUI| E[RETOUR VRAI]
+>     D -->|NON| F[RETOUR FAUX]
+>     E --> G([FIN])
 >     F --> G
 > ```
 > 
@@ -66,12 +66,14 @@ Cette fonction vérifie si les deux chaînes sont égales en ignorant la casse.
 >   PARAM CHAINE droite
 >   VARIABLE CHAINE gaucheMin
 >   VARIABLE CHAINE droiteMin
->   gaucheMin ← APPEL MIN AVEC gauche
->   droiteMin ← APPEL MIN AVEC droite
+>   
+>   gaucheMin ← MIN(gauche)
+>   droiteMin ← MIN(droite)
+>   
 >   SI gaucheMin = droiteMin ALORS
->     SORTIE VRAI
+>     RETOUR VRAI
 >   SINON
->     SORTIE FAUX
+>     RETOUR FAUX
 >   FIN SI
 > FIN
 > ```
