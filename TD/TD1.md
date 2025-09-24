@@ -310,6 +310,30 @@ Ecrire un algorithme permettant de calculer la valeur de la fonction `f(x) = 3x�
 
 Tester l'algorithme avec les valeurs de `x` suivantes : `-2` , `10` , `5` et `3`
 
+---
+
+> ### 📝 **RÉPONSE**
+> 
+> ### Algorithme `polynomeBasique` :
+> 
+> ```
+> DEBUT polynomeBasique
+>   PARAM ENTIER x
+>   VARIABLE ENTIER resultat
+>   resultat ← 3 × x × x - 8 × x + 7
+>   SORTIE resultat
+> FIN
+> ```
+> 
+> ### Tests avec les valeurs :
+> 
+> - **x = -2** : f(-2) = 3×(-2)² - 8×(-2) + 7 = 3×4 + 16 + 7 = **35**
+> - **x = 10** : f(10) = 3×(10)² - 8×(10) + 7 = 3×100 - 80 + 7 = **227**
+> - **x = 5** : f(5) = 3×(5)² - 8×(5) + 7 = 3×25 - 40 + 7 = **42**
+> - **x = 3** : f(3) = 3×(3)² - 8×(3) + 7 = 3×9 - 24 + 7 = **10**
+
+---
+
 ## 3.0 - Conception, on continue
 
 ### 3.1 - Facteur
