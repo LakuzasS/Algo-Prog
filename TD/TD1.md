@@ -339,6 +339,48 @@ Tester l'algorithme avec les valeurs de `x` suivantes : `-2` , `10` , `5` et `3`
 ### 3.1 - Facteur
 Ecrire un algorigramme et un algorithme demandant à l'utilisateur un nombre `x` puis un nombre `y`, qui calcule `x<sup>y</sup>` et l'affiche. Vous ne pouvez utiliser de fonctions supplémentaires.
 
+---
+
+> ### 📝 **RÉPONSE**
+> 
+> ### Algorigramme `facteur` :
+> 
+> ```mermaid
+> flowchart TD
+>     A([facteur]) --> B[/Saisie x/]
+>     B --> C[/Saisie y/]
+>     C --> D[resultat ← 1]
+>     D --> E[i ← 1]
+>     E --> F{i ≤ y}
+>     F -->|Oui| G[resultat ← resultat × x]
+>     G --> H[i ← i + 1]
+>     H --> F
+>     F -->|Non| I[/Afficher resultat/]
+>     I --> J([fin])
+> ```
+> 
+> ### Algorithme `facteur` :
+> 
+> ```
+> DEBUT facteur
+>   VARIABLE ENTIER x
+>   VARIABLE ENTIER y
+>   VARIABLE ENTIER resultat ← 1
+>   VARIABLE ENTIER i ← 1
+>   AFFICHER "Entrez le nombre x : "
+>   SAISIR x
+>   AFFICHER "Entrez l'exposant y : "
+>   SAISIR y
+>   TANT QUE i ≤ y FAIRE
+>     resultat ← resultat × x
+>     i ← i + 1
+>   FIN TANT QUE
+>   AFFICHER "Résultat : ", resultat
+> FIN
+> ```
+
+---
+
 ### 3.2 - Prix unitaire
 Ecrire un algorigramme et un algorithme demandant à l’utilisateur un prix unitaire et un nombre d’articles. Cet algorithme devra pouvoir être exécuté avec un argument `taxrate` pour le taux de taxe. Informez l’utilisateur du prix TTC total et par article. Enfin, renvoyez le prix TTC total.
 
