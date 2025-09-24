@@ -392,13 +392,13 @@ Ecrire un algorigramme et un algorithme demandant à l’utilisateur un prix uni
 > flowchart TD
 >     A([prixUnitaire]) --> B[/Saisie prixHT/]
 >     B --> C[/Saisie nombreArticles/]
->     C --> D[totalHT ← prixHT × nombreArticles]
->     D --> E[totalTTC ← totalHT × (1 + taxrate)]
->     E --> F[prixTTCUnitaire ← totalTTC ÷ nombreArticles]
->     F --> G[/Afficher "Prix HT total : ", totalHT/]
->     G --> H[/Afficher "Prix TTC total : ", totalTTC/]
->     H --> I[/Afficher "Prix TTC par article : ", prixTTCUnitaire/]
->     I --> J[RETOUR totalTTC]
+>     C --> D["totalHT ← prixHT × nombreArticles"]
+>     D --> E["totalTTC ← totalHT × (1 + taxrate)"]
+>     E --> F["prixTTCUnitaire ← totalTTC ÷ nombreArticles"]
+>     F --> G[/Afficher Prix HT total/]
+>     G --> H[/Afficher Prix TTC total/]
+>     H --> I[/Afficher Prix TTC par article/]
+>     I --> J["RETOUR totalTTC"]
 >     J --> K([fin])
 > ```
 > 
