@@ -349,7 +349,6 @@ Si le joueur gagne au dernier tour, le programme s'arrête.
 >   VARIABLE CHAINE choixContinuerMaj
 >   VARIABLE BOOLEEN continuer ← VRAI
 >   
->   // Sélection d'une question non utilisée
 >   toutesQuestions ← LSQUESTIONS()
 >   questionChoisie ← ""
 >   
@@ -360,10 +359,8 @@ Si le joueur gagne au dernier tour, le programme s'arrête.
 >     FIN SI
 >   FIN POUR
 >   
->   // Récupération des données de la question
 >   donneesQuestion ← UNEQUESTION(questionChoisie)
 >   
->   // Affichage de la question
 >   ECRIRE "=== Tour ", numeroTour, " ==="
 >   ECRIRE donneesQuestion[0]
 >   ECRIRE "A: ", donneesQuestion[1]
@@ -371,7 +368,6 @@ Si le joueur gagne au dernier tour, le programme s'arrête.
 >   ECRIRE "C: ", donneesQuestion[3]
 >   ECRIRE "D: ", donneesQuestion[4]
 >   
->   // Saisie et validation de la réponse
 >   optionsValides ← ["A", "B", "C", "D"]
 >   continuer ← VRAI
 >   
@@ -387,7 +383,6 @@ Si le joueur gagne au dernier tour, le programme s'arrête.
 >     FIN SI
 >   FIN TANT QUE
 >   
->   // Vérification de la réponse
 >   SI reponseUtilisateurMaj = donneesQuestion[5] ALORS
 >     ECRIRE "Bonne réponse !"
 >     cagnotte ← POGNON(numeroTour)
@@ -431,6 +426,100 @@ Implémentez le timer.
 Pour cela, utilisez la fonction `LIRENB` pour effectuer une lecture non-bloquante, encapsulée dans une boucle `TANTQUE` vérifiant un écart de temps.
 Si cet écart de temps est supérieur à 30, et qu'aucune saisie n'a été réalisée, la réponse est considérée comme fausse.
 
+---
+
+> ### 📝 **RÉPONSE**
+> 
+> ### Algorigramme `SAISIE_AVEC_TIMER` :
+> 
+> ```mermaid
+> flowchart TD
+>     A([SAISIE_AVEC_TIMER]) --> B["tempsDebut = MST()"]
+>     B --> C["reponse = ''"]
+>     C --> D["saisieEffectuee = FAUX"]
+>     D --> E["tempsActuel = MST()"]
+>     E --> F["ecartTemps = tempsActuel - tempsDebut"]
+>     F --> G{"ecartTemps >= 30 ET saisieEffectuee = FAUX"}
+>     G -->|OUI| H[/"Afficher: Temps écoulé!"/]
+>     H --> I[RETOUR "TIMEOUT"]
+>     G -->|NON| J["resultatLecture = LIRENB(FONCTION_CALLBACK)"]
+>     J --> K{"resultatLecture != ''"}
+>     K -->|OUI| L["reponse = resultatLecture"]
+>     L --> M["saisieEffectuee = VRAI"]
+>     M --> N[RETOUR reponse]
+>     K -->|NON| E
+>     I --> O([FIN])
+>     N --> O
+> ```
+> 
+> ### Algorithme `SAISIE_AVEC_TIMER` :
+> 
+> ```
+> DEBUT SAISIE_AVEC_TIMER
+>   VARIABLE ENTIER tempsDebut
+>   VARIABLE ENTIER tempsActuel
+>   VARIABLE ENTIER ecartTemps
+>   VARIABLE CHAINE reponse
+>   VARIABLE BOOLEEN saisieEffectuee ← FAUX
+>   VARIABLE CHAINE resultatLecture
+>   
+>   tempsDebut ← MST()
+>   reponse ← ""
+>   
+>   TANT QUE saisieEffectuee = FAUX FAIRE
+>     tempsActuel ← MST()
+>     ecartTemps ← tempsActuel - tempsDebut
+>     
+>     SI ecartTemps >= 30 ALORS
+>       ECRIRE "Temps écoulé ! (30 secondes)"
+>       RETOUR "TIMEOUT"
+>     FIN SI
+>     
+>     resultatLecture ← LIRENB(FONCTION_SAISIE_COMPLETE)
+>     SI resultatLecture != "" ALORS
+>       reponse ← resultatLecture
+>       saisieEffectuee ← VRAI
+>     FIN SI
+>   FIN TANT QUE
+>   
+>   RETOUR reponse
+> FIN
+> ```
+> 
+> ### Fonction callback `FONCTION_SAISIE_COMPLETE` :
+> 
+> ```
+> DEBUT FONCTION_SAISIE_COMPLETE
+>   PARAM CHAINE saisieUtilisateur
+>   RETOUR saisieUtilisateur
+> FIN
+> ```
+> 
+> ### Modification de la fonction `TOUR` avec timer :
+> 
+> ```
+>   ECRIRE "Votre réponse (A, B, C ou D) - Vous avez 30 secondes : "
+>   reponseUtilisateur ← SAISIE_AVEC_TIMER()
+>   
+>   SI reponseUtilisateur = "TIMEOUT" ALORS
+>     ECRIRE "Temps écoulé ! Mauvaise réponse par défaut."
+>     ECRIRE "La bonne réponse était : ", donneesQuestion[5]
+>     ECRIRE "Vous perdez tout. Retour au menu principal."
+>     RETOUR FAUX
+>   FIN SI
+>   
+>   reponseUtilisateurMaj ← MAJ(reponseUtilisateur)
+>   
+>   SI DANSLISTE(reponseUtilisateurMaj, optionsValides) = FAUX ALORS
+>     ECRIRE "Réponse invalide ! Mauvaise réponse par défaut."
+>     ECRIRE "La bonne réponse était : ", donneesQuestion[5]
+>     ECRIRE "Vous perdez tout. Retour au menu principal."
+>     RETOUR FAUX
+>   FIN SI
+> ```
+
+---
+
 ## Annexes
 
 ### Format de fichier
@@ -455,7 +544,3 @@ Réponse D
 ```
 
 X est remplacé par A, B, C ou D selon la bonne réponse.
-
-
-## Rendu au prof
-**Sujet :** 
