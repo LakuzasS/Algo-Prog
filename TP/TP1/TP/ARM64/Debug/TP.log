@@ -1,0 +1,9 @@
+﻿  algo1.c
+  algo2.c
+  algo3.c
+  askeven.c
+  basics.c
+C:\Users\maxbr\Documents\Visual Studio 2022\Cours\TP\TP\algo3.c(4,10): warning C4013: 'algo1' non défini(e) ; extern retournant int pris par défaut
+C:\Users\maxbr\Documents\Visual Studio 2022\Cours\TP\TP\algo3.c(5,9): warning C4013: 'algo2' non défini(e) ; extern retournant int pris par défaut
+  Génération de code en cours...
+  TP.vcxproj -> C:\Users\maxbr\Documents\Visual Studio 2022\Cours\TP\ARM64\Debug\TP.exe
