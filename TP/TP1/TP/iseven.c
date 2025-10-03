@@ -1,4 +1,5 @@
-#include <stdio.h>
 #include "iseven.h"
 
-void isEven
+int isEven(int a) {
+    return (0 == a % 2) ? 1 : 0;
+}
