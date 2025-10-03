@@ -24,7 +24,11 @@ int main() {
 	printf("%d %d %d %d %d %d %d %d %d %d %d %d\n", r1, r2, r3, r4, r5, r6, r7, r8, r9, r10, r11, r12);
 	return 0*/
 	
-	askEven();
-	return 0;
+	// askEven();
+	// return 0;
+
+	int a = 2;
+	int b = 3;
+	echange(&a,&b);
 }
 
